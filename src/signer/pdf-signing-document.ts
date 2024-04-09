@@ -172,15 +172,23 @@ export class PdfSigningDocument {
         ]);
     }
 
-    getPlaceholderRanges(): PdfByteRanges {
+    getPlaceholderRanges(fieldName: string | null = null): PdfByteRanges {
         const signatureRefs = this.getSignatures();
-        const lastSignatureRef = _.last(signatureRefs);
 
-        if(!lastSignatureRef) {
+        let signatureRef;
+        if (fieldName !== null) {
+            signatureRef = signatureRefs.find((sigref) => {
+                return sigref["dict"].get(PDFName.of('T')).value === fieldName;
+            });
+        } else {
+            signatureRef = _.last(signatureRefs);
+        }
+
+        if(!signatureRef) {
             throw new NoPlaceholderError();
         }
     
-        const lastSignature = this.#pdfDoc.context.lookup(lastSignatureRef, PDFDict);
+        const lastSignature = this.#pdfDoc.context.lookup(signatureRef, PDFDict);
         return getPdfRangesFromSignature(lastSignature);
     }
 

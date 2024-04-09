@@ -1,6 +1,6 @@
 {
-  "name": "sign-pdf-lib",
-  "version": "2.0.0",
+  "name": "sign-pdf-lib-dm",
+  "version": "2.0.1",
   "description": "Signs PDF files or just add a placeholder for signature.",
   "files": [
     "dist/src/**"
@@ -14,12 +14,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/remdra/sign-pdf-lib.git"
+    "url": "git+https://github.com/dakshchan/sign-pdf-lib.git"
   },
-  "author": "Remus DRAICA (remus.draica@gmail.com)",
+  "author": "Daksh Malhotra (@dakshchan)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/remdra/sign-pdf-lib/issues"
+    "url": "https://github.com/dakshchan/sign-pdf-lib/issues"
   },
   "keywords": [
     "pdf",
@@ -27,7 +27,7 @@
     "signature",
     "placeholder"
   ],
-  "homepage": "https://github.com/remdra/sign-pdf-lib#readme",
+  "homepage": "https://github.com/dakshchan/sign-pdf-lib#readme",
   "dependencies": {
     "@pdf-lib/standard-fonts": "^1.0.0",
     "@pdf-lib/upng": "^1.0.1",

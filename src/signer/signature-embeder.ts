@@ -7,9 +7,9 @@ export class SignatureEmbeder {
     #pdf: Buffer;
     #signRanges: PdfByteRanges;
 
-    static async fromPdfAsync(pdf: Buffer): Promise<SignatureEmbeder> {
+    static async fromPdfAsync(pdf: Buffer, fieldName: string | null = null): Promise<SignatureEmbeder> {
         const pdfDocSigner = await PdfDocumentDigitalSigner.fromPdfAsync(pdf);
-        const signRanges = pdfDocSigner.getPlaceholderRanges();
+        const signRanges = pdfDocSigner.getPlaceholderRanges(fieldName);
 
         return new SignatureEmbeder(signRanges, pdf);
     }

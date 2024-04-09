@@ -225,7 +225,7 @@ export class PdfDocumentDigitalSigner {
         return await this.#signingDoc.saveAsync();
     }
 
-    getPlaceholderRanges(): PdfByteRanges {
-        return this.#signingDoc.getPlaceholderRanges();
+    getPlaceholderRanges(fieldName: string | null = null): PdfByteRanges {
+        return this.#signingDoc.getPlaceholderRanges(fieldName);
     }
 }

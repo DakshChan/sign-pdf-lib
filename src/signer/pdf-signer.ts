@@ -61,7 +61,7 @@ export class PdfSigner {
         const embedFont = !!(info.visual && 'texts' in info.visual);
         pdfDocSigner.updateSignature(info.fieldName, { placeholderRef, visualRef, embedFont });
         const placeholderPdf = await pdfDocSigner.saveAsync();
-        const signatureEmbeder = await SignatureEmbeder.fromPdfAsync(placeholderPdf);
+        const signatureEmbeder = await SignatureEmbeder.fromPdfAsync(placeholderPdf, info.fieldName);
         const toBeSignedBuffer = signatureEmbeder.getSignBuffer();
         const signature = this.#signatureComputer.computeSignature(toBeSignedBuffer, info.signature?.date || new Date());
         return signatureEmbeder.embedSignature(signature);
